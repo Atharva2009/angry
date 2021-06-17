@@ -7,6 +7,7 @@ var engine, world;
 var box1, pig1;
 var backgroundImg,platform;
 var bird, slingShot;
+var count=3;
 
 function preload() {
     backgroundImg = loadImage("sprites/bg.png");
@@ -74,4 +75,11 @@ function mouseDragged(){
 
 function mouseReleased(){
     slingshot.fly();
+}
+
+function keyPressed(){
+    if(keyCode === 32 && count>0){
+        slingshot.attach(bird.body);
+        count--;
+    }
 }
